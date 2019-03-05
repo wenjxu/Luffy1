@@ -31,20 +31,29 @@ class CourseSerializer(serializers.ModelSerializer):
 
 
 class CourseDetailSerializer(serializers.ModelSerializer):
-    course_title = serializers.SerializerMethodField()
+    course = serializers.SerializerMethodField()
     recommend_courses = serializers.SerializerMethodField()
     teachers = serializers.SerializerMethodField()
 
-    def get_course_title(self, obj):
-        return obj.course.name
+    def get_course(self, obj):
+        return {
+            'id':obj.course.id,
+            'name':obj.course.name
+        }
 
     def get_recommend_courses(self, obj):
         course_objs = obj.recommend_courses.all()
-        return [item.name for item in course_objs]
+        return [{
+            'id':item.id,
+            'name':item.name,
+        } for item in course_objs]
 
     def get_teachers(self,obj):
         course_objs = obj.teachers.all()
-        return [item.name for item in course_objs]
+        return [{
+            'id': item.id,
+            'name':item.name,
+        }for item in course_objs]
 
     class Meta:
         model =models.CourseDetail
