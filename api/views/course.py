@@ -18,6 +18,16 @@ class CourseView(viewsets.ModelViewSet):
 
         return Response(data=cs.data)
 
+    def list(self, request, *args, **kwargs):
+        res = {'code':'1000','data':None}
+
+        course_objs = models.Course.objects.all()
+
+        cs = CourseSerializer(course_objs,many=True)
+
+        res['data'] =cs.data
+
+        return Response(data=res)
 
 
 

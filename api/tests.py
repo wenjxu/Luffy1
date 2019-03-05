@@ -2,6 +2,10 @@ from django.test import TestCase
 
 # Create your tests here.
 
-rate = '3/m'
-num, period = rate.split('/')
-print(period[0])
+import os
+if __name__ == '__main__':
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "Luffy1.settings")
+    import django
+    django.setup()
+    from api import models
+    course_objs = models.Course.objects.all()
