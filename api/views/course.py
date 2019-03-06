@@ -7,6 +7,7 @@ class CourseView(viewsets.ModelViewSet):
     serializer_class = CourseSerializer
     res = {'code': '1000', 'data': None}
     # 这个方法没有添加装饰器
+    # 测试解决bug
     def retrieve(self, request, *args, **kwargs):
         try:
             pk =kwargs.get('pk')
