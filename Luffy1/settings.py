@@ -124,6 +124,7 @@ STATIC_URL = '/static/'
 REST_FRAMEWORK = {
     'DEFAULT_THROTTLE_CLASSES':['api.utils.throttle.VisitThrottle',],
     'DEFAULT_THROTTLE_RATES':{
-        'luffy':'3/m'
-    }
+        'luffy':'10/m'
+    },
+    'DEFAULT_AUTHENTICATION_CLASSES':('api.utils.authenticate.AuthToken',),
 }
