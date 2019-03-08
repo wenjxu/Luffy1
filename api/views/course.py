@@ -10,7 +10,6 @@ class CourseView(viewsets.ModelViewSet):
     # 为这个方法添加装饰器
     @exception_wrapper
     def retrieve(self, request, *args, **kwargs):
-
         pk =kwargs.get('pk')
         course_detail_obj = models.CourseDetail.objects.filter(pk=pk).first()
         cs = CourseDetailSerializer(course_detail_obj)

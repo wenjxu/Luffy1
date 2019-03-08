@@ -8,14 +8,6 @@ if __name__ == '__main__':
     import django
     django.setup()
     from api import models
-    course_objs = models.Course.objects.all()
-
-
-def ExFunc(n):
-    sum = n
-    res = {'code': '1000', 'data': None}
-    def InsFunc():
-        print(res)
-        return sum + 1
-
-    return InsFunc
+    course_objs = models.Course.objects.all().only('id','name')
+    for course_obj in course_objs:
+        print(course_obj.name)

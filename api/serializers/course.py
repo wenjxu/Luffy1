@@ -36,20 +36,21 @@ class CourseDetailSerializer(serializers.ModelSerializer):
     teachers = serializers.SerializerMethodField()
 
     def get_course(self, obj):
+        course_obj = obj.course.objects.only('id','name')
         return {
-            'id':obj.course.id,
-            'name':obj.course.name
+            'id':course_obj.id,
+            'name':course_obj.name
         }
 
     def get_recommend_courses(self, obj):
-        course_objs = obj.recommend_courses.all()
+        course_objs = obj.recommend_courses.all().only('id','name')
         return [{
             'id':item.id,
             'name':item.name,
         } for item in course_objs]
 
     def get_teachers(self,obj):
-        course_objs = obj.teachers.all()
+        course_objs = obj.teachers.all().only('id','name')
         return [{
             'id': item.id,
             'name':item.name,
