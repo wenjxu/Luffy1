@@ -36,7 +36,7 @@ class CourseDetailSerializer(serializers.ModelSerializer):
     teachers = serializers.SerializerMethodField()
 
     def get_course(self, obj):
-        course_obj = obj.course.objects.only('id','name')
+        course_obj = obj.course
         return {
             'id':course_obj.id,
             'name':course_obj.name
