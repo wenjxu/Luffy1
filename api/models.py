@@ -373,7 +373,7 @@ class Article(models.Model):
 class Collection(models.Model):
     """收藏"""
     content_type = models.ForeignKey(ContentType,on_delete=models.CASCADE)
-    object_id = models.PositiveIntegerField()
+    object_id = models.IntegerField()
     content_object = GenericForeignKey('content_type', 'object_id')
 
     account = models.ForeignKey("Account",on_delete=models.CASCADE)
@@ -386,7 +386,7 @@ class Collection(models.Model):
 class Comment(models.Model):
     """通用的评论表"""
     content_type = models.ForeignKey(ContentType, blank=True, null=True, verbose_name="类型",on_delete=models.CASCADE)
-    object_id = models.PositiveIntegerField(blank=True, null=True)
+    object_id = models.IntegerField(blank=True, null=True)
     content_object = GenericForeignKey('content_type', 'object_id')
 
     p_node = models.ForeignKey("self", blank=True, null=True, verbose_name="父级评论",on_delete=models.CASCADE)
