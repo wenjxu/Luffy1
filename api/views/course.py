@@ -1,6 +1,5 @@
-from api import models
 from rest_framework import viewsets
-from api.serializers.course import CourseSerializer,CourseDetailSerializer
+from api.serializers.course import *
 from api.utils.wrapper import *
 class CourseView(viewsets.ModelViewSet):
     queryset = models.Course.objects.all()

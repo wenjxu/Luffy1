@@ -8,6 +8,8 @@ if __name__ == '__main__':
     import django
     django.setup()
     from api import models
-    course_objs = models.Course.objects.all().only('id','name')
-    for course_obj in course_objs:
-        print(course_obj.name)
+    from django.contrib.contenttypes.models import ContentType
+    article_obj = models.Article.objects.filter(pk=1).first()
+    # print(article_obj)
+    model_id = ContentType.objects.filter(model='article').first().id
+    print(model_id)
