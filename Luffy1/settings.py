@@ -42,6 +42,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'django.middleware.cache.UpdateCacheMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -49,6 +50,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.cache.FetchFromCacheMiddleware',
 ]
 
 ROOT_URLCONF = 'Luffy1.urls'
@@ -122,9 +124,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 REST_FRAMEWORK = {
-    'DEFAULT_THROTTLE_CLASSES':['api.utils.throttle.VisitThrottle',],
+    'DEFAULT_THROTTLE_CLASSES':('api.utils.throttle.VisitThrottle',),
     'DEFAULT_THROTTLE_RATES':{
-        'luffy':'10/m'
+        'luffy':'3/m'
     },
     'DEFAULT_AUTHENTICATION_CLASSES':('api.utils.authenticate.AuthToken',),
 }
@@ -144,5 +146,17 @@ LOGGING = {
             'propagate': True,
             'level':'DEBUG',
         },
+    }
+}
+
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://127.0.0.1:6379",
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+            "CONNECTION_POOL_KWARGS": {"max_connections": 100}
+            # "PASSWORD": "密码",
+        }
     }
 }
