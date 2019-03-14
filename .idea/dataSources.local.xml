@@ -8,9 +8,5 @@
       <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
       <introspection-schemas>*:main</introspection-schemas>
     </data-source>
-    <data-source name="db [2]" uuid="98fe3bf5-4543-43af-8ced-c3f07b3afe9c">
-      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
-      <introspection-schemas>*:main</introspection-schemas>
-    </data-source>
   </component>
 </project>

@@ -11,8 +11,8 @@ def aliPay():
     PUB_KEY_PATH = "api/keys/alipay_public_2048.txt"
     obj = AliPay(
         appid='2016092800614112',
-        app_notify_url="http://106.12.21.59/update_order/",  # 如果支付成功，支付宝会向这个地址发送POST请求（校验是否支付已经完成）
-        return_url="http://106.12.21.59/pay_result/",  # 如果支付成功，重定向回到你的网站的地址。
+        app_notify_url="http://106.12.21.59:8080/luffy/update_order/",  # 如果支付成功，支付宝会向这个地址发送POST请求（校验是否支付已经完成）
+        return_url="http://106.12.21.59:8080/luffy/pay_result/",  # 如果支付成功，重定向回到你的网站的地址。
         alipay_public_key_path=PUB_KEY_PATH,  # 支付宝公钥
         app_private_key_path=PRI_KEY_PATH,  # 应用私钥
         debug=True,  # 默认False,
@@ -51,7 +51,6 @@ def pay_result(request):
     alipay = aliPay()
 
     status = alipay.verify(params, sign)
-
     if status:
         return HttpResponse('支付成功')
     return HttpResponse('支付失败')
