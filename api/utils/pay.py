@@ -58,7 +58,6 @@ class AliPay(object):
         if return_url is not None:
             data["notify_url"] = self.app_notify_url
             data["return_url"] = self.return_url
-
         return data
 
     def sign_data(self, data):

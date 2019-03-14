@@ -1,6 +1,6 @@
 from django.urls import path,re_path
 from api.views import course,alipay,account,article
-
+from api.views import alipay
 urlpatterns = [
 
     path('course/',course.CourseView.as_view({'get':'list'})),
@@ -9,8 +9,9 @@ urlpatterns = [
     path('login/',account.LoginView.as_view()),
     path('article/',article.ArticleView.as_view({'get':'list'})),
     path('article/<int:pk>/',article.ArticleView.as_view({"get":"retrieve"})),
-    path('comment/',article.CommentView.as_view({"get":"retrieve"})), # 传参：article_id
-
+    path('comment/',article.CommentView.as_view({"get":"retrieve"})),# 传参：article_id
+    path(r'^pay_result/', alipay.pay_result),
+    path(r'^update_order/', alipay.update_order),
 ]
 
 
