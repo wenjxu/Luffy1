@@ -14,10 +14,14 @@ class LoginView(APIView):
         res = {"code":1000,'token':None}
         username = request.data.get('username')
         password = request.data.get('password')
+        #{"username":"alex","password":"123456"}
         account_obj = models.Account.objects.filter(username=username,password=password).first()
         if account_obj:
             token = get_random_str(username)
-            models.UserAuthToken.objects.update_or_create(user=account_obj,defaults={'token':token})
+            models.UserAuthToken.objects.update_or_create(user=account_obj,defaults={
+                'token':token,
+                'is_delete':0,
+            })
             res['token'] = token
         else:
             res['code'] =1001

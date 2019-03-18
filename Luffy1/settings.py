@@ -124,10 +124,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 REST_FRAMEWORK = {
-    'DEFAULT_THROTTLE_CLASSES':('api.utils.throttle.VisitThrottle',),
-    'DEFAULT_THROTTLE_RATES':{
-        'luffy':'3/m'
-    },
+    # 'DEFAULT_THROTTLE_CLASSES':('api.utils.throttle.VisitThrottle',),
+    # 'DEFAULT_THROTTLE_RATES':{
+    #     'luffy':'3/m'
+    # },
     'DEFAULT_AUTHENTICATION_CLASSES':('api.utils.authenticate.AuthToken',),
 }
 
@@ -148,16 +148,25 @@ LOGGING = {
         },
     }
 }
-'''
+
 CACHES = {
     "default": {
         "BACKEND": "django_redis.cache.RedisCache",
         "LOCATION": "redis://127.0.0.1:6379",
         "OPTIONS": {
             "CLIENT_CLASS": "django_redis.client.DefaultClient",
-            "CONNECTION_POOL_KWARGS": {"max_connections": 100}
+            "CONNECTION_POOL_KWARGS": {"max_connections": 1000}
             # "PASSWORD": "密码",
         }
     }
 }
-'''
+#token过期时间
+TOKEN_EXPIRE_SECONDES = 60
+
+
+
+
+
+
+
+

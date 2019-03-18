@@ -412,8 +412,8 @@ class UserAuthToken(models.Model):
     """
     user = models.OneToOneField(to="Account",on_delete=models.CASCADE)
     token = models.CharField(max_length=64, unique=True)
-
-
+    create_time = models.DateTimeField(auto_now_add=True)
+    is_delete = models.BooleanField(default=0)
 
 
 

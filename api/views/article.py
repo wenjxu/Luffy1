@@ -1,6 +1,6 @@
 from rest_framework import viewsets
 from api.serializers.article import *
-from api.utils.wrapper import *
+from api.utils.tool import *
 from django.contrib.contenttypes.models import ContentType
 class ArticleView(viewsets.ModelViewSet):
     res = {'code': '1000', 'data': None}
