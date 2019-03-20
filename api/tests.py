@@ -19,8 +19,9 @@ if __name__ == '__main__':
     # var = datetime.datetime.now() + datetime.timedelta(hours=3)
     # print(var)
     # print(type(var))
-    print(datetime.datetime.strptime(str(datetime.datetime.now()),'%Y-%m-%d %H:%M:%S.%f'))
-    print(type(datetime.datetime.strptime(str(datetime.datetime.now()),'%Y-%m-%d %H:%M:%S.%f')))
+    # print(datetime.datetime.strptime(str(datetime.datetime.now()),'%Y-%m-%d %H:%M:%S.%f'))
+    # print(type(datetime.datetime.strptime(str(datetime.datetime.now()),'%Y-%m-%d %H:%M:%S.%f')))
+
 
 
 

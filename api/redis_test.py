@@ -9,6 +9,17 @@ if __name__ == '__main__':
     # var = conn.hgetall('user_token')
     # print(var)
     # conn.flushall()
+    keys = conn.keys()
+    print(keys)
+    # print(conn.hgetall('shopping_car_2_2'))
+    # print(conn.hgetall('shopping_car_2_1'))
+    # conn.hset("test","key","value")
+    # conn.expire("test",60)
+    # ret = conn.delete("token_2")
+    # print(ret)
+    # print(ret)
+    # ret = conn.hgetall("test")
+    # print(ret)
 
 
 

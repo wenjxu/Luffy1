@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<dataSource name="db [2]">
+<dataSource name="db [3]">
   <database-model serializer="dbm" rdbms="SQLITE" format-version="4.9">
     <root id="1">
       <ServerVersion>3.25.1</ServerVersion>
@@ -226,22 +226,22 @@
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="76" parent="9" name="object_id">
+    <column id="76" parent="9" name="date">
       <Position>2</Position>
-      <DataType>integer unsigned|0s</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <column id="77" parent="9" name="date">
-      <Position>3</Position>
       <DataType>datetime|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="78" parent="9" name="account_id">
+    <column id="77" parent="9" name="account_id">
+      <Position>3</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="78" parent="9" name="content_type_id">
       <Position>4</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="79" parent="9" name="content_type_id">
+    <column id="79" parent="9" name="object_id">
       <Position>5</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -285,36 +285,36 @@ account_id</ColNames>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="87" parent="10" name="object_id">
+    <column id="87" parent="10" name="content">
       <Position>2</Position>
-      <DataType>integer unsigned|0s</DataType>
-    </column>
-    <column id="88" parent="10" name="content">
-      <Position>3</Position>
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="89" parent="10" name="disagree_number">
+    <column id="88" parent="10" name="disagree_number">
+      <Position>3</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="89" parent="10" name="agree_number">
       <Position>4</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="90" parent="10" name="agree_number">
+    <column id="90" parent="10" name="date">
       <Position>5</Position>
-      <DataType>integer|0s</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <column id="91" parent="10" name="date">
-      <Position>6</Position>
       <DataType>datetime|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="92" parent="10" name="account_id">
-      <Position>7</Position>
+    <column id="91" parent="10" name="account_id">
+      <Position>6</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="93" parent="10" name="content_type_id">
+    <column id="92" parent="10" name="content_type_id">
+      <Position>7</Position>
+      <DataType>integer|0s</DataType>
+    </column>
+    <column id="93" parent="10" name="object_id">
       <Position>8</Position>
       <DataType>integer|0s</DataType>
     </column>

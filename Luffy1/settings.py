@@ -26,7 +26,7 @@ SECRET_KEY = '1s7-yg&b0d@bm&(1a^bl#0m(w8)eai8raz4^91d(x=zc4vr0uv'
 DEBUG = True
 
 ALLOWED_HOSTS = ['*',]
-
+# APPEND_SLASH=False
 
 # Application definition
 
@@ -160,8 +160,14 @@ CACHES = {
         }
     }
 }
+# redis中用户token的key
+TOKEN_KEY = "token_%s"
+
 #token过期时间
-TOKEN_EXPIRE_SECONDES = 60
+TOKEN_EXPIRE_SECONDES = 6000000
+
+# redis中购物车的key
+SHOPPING_KEY = "shopping_car_%s_%s"
 
 
 
